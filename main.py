@@ -25,7 +25,6 @@ import matplotlib
 import feller_diffusion_methods
 
 matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['savefig.dpi'] = 300
 matplotlib.rcParams["figure.dpi"] = 100
 plt.rcParams['svg.fonttype']='none'
 matplotlib.rc('legend', fontsize= 9)
@@ -47,11 +46,11 @@ else:
 print(" Choose parameters values: ")
 default = input("Default? (y/n) \n")
 if default == 'y':
-    a = 3
-    r = 0.1
-    x_0 = 10
+    a = 6
+    r = 0.2
+    x_0 = 25
     n_init = 2
-    T = 50
+    T = 30
 else:
     a = abs(float(input("\n positive growth rate a = ")))
     r = abs(float(input("\n positive branching rate r = ")))
