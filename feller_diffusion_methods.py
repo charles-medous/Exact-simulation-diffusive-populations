@@ -254,7 +254,7 @@ def Trajectory(a, r, x_0, n_init, T):
     if npts > 0:
         t[1:-1] = np.sort(T * np.random.uniform(0,1,npts) )
     plt.figure(figsize=(7.24,4))
-    for i in range(npts - 1):
+    for i in range(npts):
         times, w, z = RetrospectiveSampling(X, t[i], t[i+1], a)
         traj_temp = np.ones((np.size(X), np.size(times) + 2))
         tps = np.ones(np.size(times) + 2)
