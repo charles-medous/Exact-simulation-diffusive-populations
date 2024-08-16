@@ -274,7 +274,7 @@ def Trajectory(a, r, x_0, n_init, T):
             else: 
                 plt.plot(tps, traj_temp[j][:] ** 2, 'o-', 
                         color = clr[j], markersize = 2, linewidth = 1)
-        X = np.append(X, x_0 * np.random.uniform())
+        X = np.append(X, np.sqrt(x_0) * np.random.uniform())
     plt.xlabel('Time')
     plt.ylabel('Trait value')
     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
