@@ -245,18 +245,18 @@ def Trajectory(a, r, x_0, n_init, T):
         Plot the trajectories of the individuals traits in the population.
     """    
     npts = np.random.poisson(r * T)
-    tableau = np.zeros(npts + n_init -1)
+    tableau = np.zeros(npts + n_init)
     clr = cm.get_cmap('rainbow',len(tableau))
     clr = clr(np.linspace(0,1,len(tableau))) 
-    X = np.sqrt(x_0) * np.random.uniform(0,1,n_init)
+    X = np.sqrt(x_0) * np.random.uniform(0,1,n_init) # y_init
     t = np.zeros(npts + 2)
     t[-1] = T
     if npts > 0:
         t[1:-1] = np.sort(T * np.random.uniform(0,1,npts) )
     plt.figure(figsize=(7.24,4))
-    for i in range(npts):
+    for i in range(npts + 1):
         times, w, z = RetrospectiveSampling(X, t[i], t[i+1], a)
-        traj_temp = np.ones((np.size(X), np.size(times) + 2))
+        traj_temp = np.ones((np.size(X), np.size(times) + 2)) # y traj
         tps = np.ones(np.size(times) + 2)
         tps[0] = t[i]
         tps[-1] = t[i+1]- 0.0001
@@ -268,16 +268,16 @@ def Trajectory(a, r, x_0, n_init, T):
                 traj_temp[j][k+1] = w[k][j]
                 tps[k+1] = times[k]
             lab = 'Ind. %.d'%(j)
-            if i == npts-2:
+            if i == npts:
                 plt.plot(tps, traj_temp[j][:] ** 2,'o-',markersize=2, 
-                        color = clr[j], label = lab, linewidth = 1)
+                        color = clr[j], label = lab, linewidth = 1) # x traj
             else: 
                 plt.plot(tps, traj_temp[j][:] ** 2, 'o-', 
                         color = clr[j], markersize = 2, linewidth = 1)
-        X = np.append(X, np.sqrt(x_0) * np.random.uniform())
+        X = np.append(X, np.sqrt(x_0) * np.random.uniform()) # new y
     plt.xlabel('Time')
     plt.ylabel('Trait value')
-    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
-          ncol=npts + n_init -1,markerscale=1, mode="expand", borderaxespad=0.)
+    plt.legend(bbox_to_anchor = (0., 1.02, 1., .102), loc = 3,
+          ncol = npts + n_init ,markerscale=1, mode="expand", borderaxespad=0.)
     plt.show()
     return()
