@@ -248,7 +248,7 @@ def Trajectory(a, r, x_0, n_init, T):
     tableau = np.zeros(npts + n_init -1)
     clr = cm.get_cmap('rainbow',len(tableau))
     clr = clr(np.linspace(0,1,len(tableau))) 
-    X = x_0 * np.random.uniform(0,1,n_init)
+    X = np.sqrt(x_0) * np.random.uniform(0,1,n_init)
     t = np.zeros(npts + 2)
     t[-1] = T
     if npts > 0:
