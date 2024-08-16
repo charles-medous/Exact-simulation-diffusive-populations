@@ -48,7 +48,7 @@ default = input("Default? (y/n) \n")
 if default == 'y':
     a = 6
     r = 0.2
-    x_0 = 25
+    x_0 = 5
     n_init = 2
     T = 30
 else:
