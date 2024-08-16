@@ -35,7 +35,7 @@ def Phi(z, a):
         output = a * num / denom
     else:
         output = a * num / denom + a * (a - 2) ** 2 / (64 - 16 * a)
-    return(output)
+    return(output / 2)
 
 def M(n, a):
     """Compute the upper bound for the intensity function phi for a given 
@@ -60,7 +60,7 @@ def M(n, a):
             m = a * n / 2
     else:
         m = (a * (n + a / 2 - 2) ** 2) / (4 * (a - 4))
-    return(m)
+    return(m / 2)
 
 def PPP(m, t_0, t_1):
     """Generate a unit-rate Poisson point process on [0,m]*[t_0,t_1].
