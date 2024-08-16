@@ -49,9 +49,9 @@ default = input("Default? (y/n) \n")
 if default == 'y':
     a = 3
     r = 0.1
-    x_0 = 2
+    x_0 = 10
     n_init = 2
-    T = 30
+    T = 50
 else:
     a = abs(float(input("\n positive growth rate a = ")))
     r = abs(float(input("\n positive branching rate r = ")))
